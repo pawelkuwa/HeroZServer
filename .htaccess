@@ -1,0 +1,12 @@
+# Prevent directory listings
+Options -Indexes
+
+# WASM MIME type (required for Ruffle.rs)
+AddType application/wasm .wasm
+
+# BEGIN GZIP
+<ifmodule mod_deflate.c>
+AddOutputFilterByType DEFLATE application/json
+AddOutputFilterByType DEFLATE application/wasm
+</ifmodule>
+# END GZIP

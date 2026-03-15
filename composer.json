@@ -1,0 +1,6 @@
+{
+    "require":{
+        "clancats/hydrahon": "^1.1",
+        "phpmailer/phpmailer": "^7.0"
+    }
+}
