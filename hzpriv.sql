@@ -1568,6 +1568,68 @@ ALTER TABLE `tournament_snapshots`
 --
 ALTER TABLE `tournament_rewards`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `vouchers`
+--
+
+CREATE TABLE `vouchers` (
+  `id` int(11) NOT NULL,
+  `code` varchar(50) NOT NULL,
+  `rewards` text NOT NULL,
+  `uses_max` int(11) NOT NULL DEFAULT '1',
+  `uses_current` int(11) NOT NULL DEFAULT '0',
+  `min_level` int(11) NOT NULL DEFAULT '0',
+  `locale` varchar(10) NOT NULL DEFAULT '',
+  `user_id` int(11) NOT NULL DEFAULT '0',
+  `ts_start` int(11) NOT NULL DEFAULT '0',
+  `ts_end` int(11) NOT NULL DEFAULT '0',
+  `ts_creation` int(11) NOT NULL DEFAULT '0',
+  `status` tinyint(4) NOT NULL DEFAULT '1'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `voucher_redemptions`
+--
+
+CREATE TABLE `voucher_redemptions` (
+  `id` int(11) NOT NULL,
+  `voucher_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `character_id` int(11) NOT NULL DEFAULT '0',
+  `ts_redeemed` int(11) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Indeksy dla tabeli `vouchers`
+--
+ALTER TABLE `vouchers`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `idx_code` (`code`);
+
+--
+-- Indeksy dla tabeli `voucher_redemptions`
+--
+ALTER TABLE `voucher_redemptions`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `idx_unique` (`voucher_id`, `user_id`);
+
+--
+-- AUTO_INCREMENT dla tabeli `vouchers`
+--
+ALTER TABLE `vouchers`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT dla tabeli `voucher_redemptions`
+--
+ALTER TABLE `voucher_redemptions`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

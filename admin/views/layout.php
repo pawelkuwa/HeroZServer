@@ -60,6 +60,12 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link <?= ($currentPage === 'vouchers') ? 'active' : '' ?>" href="index.php?page=vouchers">
+                            <i class="fas fa-ticket-alt"></i>
+                            <span>Vouchers</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link <?= ($currentPage === 'config') ? 'active' : '' ?>" href="index.php?page=config">
                             <i class="fas fa-cogs"></i>
                             <span>Config</span>

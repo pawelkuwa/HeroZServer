@@ -7,6 +7,9 @@ All notable changes to this project will be documented in this file.
 ### Added
 - Guild battle history (`getGuildBattleHistoryFights`, `getGuildBattleHistoryFight`) showing past guild battles, defenses and dungeon fights with enemy emblems
 - Item validation in `Player::getItems()` and `Player::createItem()` to filter items with identifiers not in GameSettings templates, preventing SWF crashes
+- Voucher / promo code system (`redeemVoucher`, `getUserVoucher`, `redeemUserVoucherLater`) with code validation, usage limits, level/locale restrictions, expiry dates
+- Admin voucher management panel (create, view, toggle, delete, redemption log)
+- New DB tables: `vouchers`, `voucher_redemptions`
 
 ## [1.0.4] - 2026-03-15
 
