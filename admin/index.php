@@ -42,7 +42,7 @@ requireAdmin();
 // Whitelist of valid pages
 $validPages = [
     'dashboard', 'users', 'characters', 'guilds',
-    'items', 'messages', 'email', 'vouchers', 'config'
+    'items', 'messages', 'email', 'vouchers', 'events', 'config'
 ];
 
 if (!in_array($page, $validPages)) {
@@ -58,6 +58,7 @@ $controllerMap = [
     'messages'   => 'MessagesController',
     'email'      => 'EmailController',
     'vouchers'   => 'VouchersController',
+    'events'     => 'EventsController',
     'config'     => 'ConfigController',
 ];
 

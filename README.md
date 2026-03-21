@@ -39,7 +39,7 @@ https://imgur.com/a/XjBiT4S
 | **Ruffle.rs** | Flash SWF client runs natively in Chrome, Firefox, Edge — no plugins |
 | **WebSocket Server** | Real-time push notifications for messages, goals, guild events, world boss |
 | **Email System** | PHPMailer + MySQL async queue, password reset flow with tokens |
-| **Admin Panel** | Bootstrap 5 dark theme, 8 management controllers |
+| **Admin Panel** | Bootstrap 5 dark theme, 9 management controllers |
 | **Multi-Language** | Polish, English, Portuguese (PT-BR) on all pages |
 | **CDN Proxy** | Serves Akamai game assets locally, bypasses CORS |
 
@@ -82,6 +82,7 @@ https://imgur.com/a/XjBiT4S
 | **Items** | Read-only catalog of 779 templates (search, filter by type/quality/pattern) |
 | **Messages** | Compose, broadcast to all players |
 | **Email** | Queue, log, broadcast, SMTP settings |
+| **Events** | Activate/deactivate events with date picker, auto-expires player records |
 | **Config** | Server config viewer, cache clear |
 
 ### SWF Compatibility

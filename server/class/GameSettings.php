@@ -34624,8 +34624,8 @@ class GameSettings{
 				]
 			],
 			"halloween"=>[
-				"start_date"=>"2024-01-01 00:00:00",
-				"end_date"=>"2030-12-31 23:59:59",
+				"start_date"=>"2012-01-01 00:00:00",
+				"end_date"=>"2012-01-02 00:00:00",
 				"reward1_type"=>3,
 				"reward1_factor"=>10,
 				"reward1_flag"=>"",
@@ -35038,8 +35038,8 @@ class GameSettings{
 				]
 			],
 			"worldcup_event_1"=>[
-				"start_date"=>"2012-01-01 00:00:00",
-				"end_date"=>"2012-01-02 00:00:00",
+				"start_date"=>"2026-03-21 00:00:00",
+				"end_date"=>"2026-05-23 23:59:59",
 				"reward1_type"=>3,
 				"reward1_factor"=>10,
 				"reward1_flag"=>"",

@@ -66,6 +66,12 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link <?= ($currentPage === 'events') ? 'active' : '' ?>" href="index.php?page=events">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Events</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link <?= ($currentPage === 'config') ? 'active' : '' ?>" href="index.php?page=config">
                             <i class="fas fa-cogs"></i>
                             <span>Config</span>

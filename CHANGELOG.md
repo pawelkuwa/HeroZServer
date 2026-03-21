@@ -13,7 +13,8 @@ All notable changes to this project will be documented in this file.
 - Event quest data in login, character creation and syncGame responses
 - Fallback to random epic items when event-specific item identifiers don't exist in templates
 - New DB table: `event_quests`
-- Halloween event activated (2024-2030) for testing
+- Admin events panel to activate/deactivate events with date picker
+- Deactivation expires DB records so players stop seeing the event immediately
 
 ## [1.1.0] - 2026-03-19
 
