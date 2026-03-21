@@ -1244,6 +1244,161 @@ class Player extends Entity{
         }
     }
 
+    // ---- Event Quests ----
+
+    private $_eventQuest = false;
+
+    public function getActiveEventQuestRecord(){
+        if($this->character->event_quest_id <= 0) return null;
+        if($this->_eventQuest !== false) return $this->_eventQuest;
+        $this->_eventQuest = \Schema\EventQuests::find(function($q){
+            $q->where('id', $this->character->event_quest_id);
+        });
+        return $this->_eventQuest;
+    }
+
+    public function getEventQuest(){
+        $eq = $this->getActiveEventQuestRecord();
+        if(!$eq) return null;
+
+        $now = time();
+        $endTs = strtotime($eq->end_date);
+        if($endTs && $endTs < $now && $eq->status == 1){
+            $allDone = $this->checkAllObjectivesCollected($eq);
+            $eq->status = $allDone ? 5 : 3;
+        }
+
+        $data = [
+            'id' => $eq->id,
+            'identifier' => $eq->identifier,
+            'status' => $eq->status,
+            'end_date' => $eq->end_date,
+            'objective1_value' => $eq->objective1_value,
+            'objective2_value' => $eq->objective2_value,
+            'objective3_value' => $eq->objective3_value,
+            'objective4_value' => $eq->objective4_value,
+            'objective5_value' => $eq->objective5_value,
+            'objective6_value' => $eq->objective6_value,
+            'rewards' => $eq->rewards,
+            'reward_item1_id' => $eq->reward_item1_id,
+            'reward_item2_id' => $eq->reward_item2_id,
+            'reward_item3_id' => $eq->reward_item3_id,
+        ];
+        return $data;
+    }
+
+    private function checkAllObjectivesCollected($eq){
+        $events = GameSettings::getConstant('event_quests');
+        $event = $events[$eq->identifier] ?? null;
+        if(!$event) return false;
+        foreach($event['objectives'] as $obj){
+            $idx = $obj['index'];
+            $field = 'objective' . $idx . '_value';
+            $val = $eq->{$field};
+            if($val <= $obj['value']) return false;
+        }
+        return true;
+    }
+
+    public function getActiveEventForLogin(){
+        $events = GameSettings::getConstant('event_quests');
+        $minLevel = GameSettings::getConstant('event_quest_min_level');
+        if($this->getLVL() < $minLevel) return null;
+        $now = time();
+        foreach($events as $id => $event){
+            $start = strtotime($event['start_date']);
+            $end = strtotime($event['end_date']);
+            if($start && $end && $now >= $start && $now <= $end){
+                return ['identifier' => $id, 'end_date' => $event['end_date']];
+            }
+        }
+        return null;
+    }
+
+    public function updateEventQuestProgress($type, $reference = '', $amount = 1){
+        if($this->character->event_quest_id <= 0) return;
+        $eq = $this->getActiveEventQuestRecord();
+        if(!$eq || $eq->status != 1) return;
+
+        $endTs = strtotime($eq->end_date);
+        if($endTs && $endTs < time()) return;
+
+        $events = GameSettings::getConstant('event_quests');
+        $event = $events[$eq->identifier] ?? null;
+        if(!$event) return;
+
+        $changed = false;
+        foreach($event['objectives'] as $objId => $obj){
+            if($obj['type'] != $type) continue;
+
+            if($type == 7){
+                if($obj['reference'] != $reference) continue;
+            } elseif($type == 8){
+                if($obj['reference'] != '' && $obj['reference'] != '*'){
+                    if(!$this->matchesWildcard($obj['reference'], $reference))
+                        continue;
+                }
+            } elseif($type == 6){
+                if($obj['reference'] != '' && $obj['reference'] != $reference)
+                    continue;
+            }
+
+            $idx = $obj['index'];
+            $field = 'objective' . $idx . '_value';
+            $current = $eq->{$field};
+            $target = $obj['value'];
+
+            if($current >= $target) continue;
+
+            $eq->{$field} = min($current + $amount, $target);
+            $changed = true;
+        }
+
+        if($changed) $eq->save();
+    }
+
+    public function rollEventItem(){
+        if($this->character->event_quest_id <= 0) return;
+        $eq = $this->getActiveEventQuestRecord();
+        if(!$eq || $eq->status != 1) return;
+
+        $endTs = strtotime($eq->end_date);
+        if($endTs && $endTs < time()) return;
+
+        $events = GameSettings::getConstant('event_quests');
+        $event = $events[$eq->identifier] ?? null;
+        if(!$event) return;
+
+        $eventItems = GameSettings::getConstant('event_items');
+
+        foreach($event['objectives'] as $objId => $obj){
+            if($obj['type'] != 7) continue;
+
+            $itemRef = $obj['reference'];
+            if(!isset($eventItems[$itemRef])) continue;
+
+            $idx = $obj['index'];
+            $field = 'objective' . $idx . '_value';
+            $current = $eq->{$field};
+            $target = $obj['value'];
+
+            if($current >= $target) continue;
+
+            $chance = $eventItems[$itemRef]['reward_chance'] ?? 0;
+            if($chance <= 0) continue;
+
+            if(mt_rand(1, 10000) <= (int)($chance * 10000)){
+                $eq->{$field} = min($current + 1, $target);
+                $eq->save();
+            }
+        }
+    }
+
+    private function matchesWildcard($pattern, $str){
+        $regex = str_replace('\\*', '.*', '/^' . preg_quote($pattern, '/') . '$/');
+        return (bool)preg_match($regex, $str);
+    }
+
     public function rollHerobookItemDrop(){
         if($this->getLVL() < GameSettings::getConstant('herobook_min_level'))
             return null;

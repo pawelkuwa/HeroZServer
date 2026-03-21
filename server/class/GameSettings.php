@@ -34566,8 +34566,8 @@ class GameSettings{
 		],
 		"event_quests"=>[
 			"summer_event"=>[
-				"start_date"=>"2012-01-01",
-				"end_date"=>"2012-01-02",
+				"start_date"=>"2012-01-01 00:00:00",
+				"end_date"=>"2012-01-02 00:00:00",
 				"reward1_type"=>3,
 				"reward1_factor"=>10,
 				"reward1_flag"=>"",
@@ -34624,8 +34624,8 @@ class GameSettings{
 				]
 			],
 			"halloween"=>[
-				"start_date"=>"2012-01-01",
-				"end_date"=>"2012-01-02",
+				"start_date"=>"2024-01-01 00:00:00",
+				"end_date"=>"2030-12-31 23:59:59",
 				"reward1_type"=>3,
 				"reward1_factor"=>10,
 				"reward1_flag"=>"",
@@ -34690,8 +34690,8 @@ class GameSettings{
 				]
 			],
 			"xmas_event_1"=>[
-				"start_date"=>"2012-01-01",
-				"end_date"=>"2012-01-02",
+				"start_date"=>"2012-01-01 00:00:00",
+				"end_date"=>"2012-01-02 00:00:00",
 				"reward1_type"=>3,
 				"reward1_factor"=>10,
 				"reward1_flag"=>"",
@@ -34748,8 +34748,8 @@ class GameSettings{
 				]
 			],
 			"xmas_event_2"=>[
-				"start_date"=>"2012-01-01",
-				"end_date"=>"2012-01-02",
+				"start_date"=>"2012-01-01 00:00:00",
+				"end_date"=>"2012-01-02 00:00:00",
 				"reward1_type"=>3,
 				"reward1_factor"=>10,
 				"reward1_flag"=>"",
@@ -34806,8 +34806,8 @@ class GameSettings{
 				]
 			],
 			"winterolympics_event"=>[
-				"start_date"=>"2012-01-01",
-				"end_date"=>"2012-01-02",
+				"start_date"=>"2012-01-01 00:00:00",
+				"end_date"=>"2012-01-02 00:00:00",
 				"reward1_type"=>3,
 				"reward1_factor"=>10,
 				"reward1_flag"=>"",
@@ -34864,8 +34864,8 @@ class GameSettings{
 				]
 			],
 			"carnival_event"=>[
-				"start_date"=>"2012-01-01",
-				"end_date"=>"2012-01-02",
+				"start_date"=>"2012-01-01 00:00:00",
+				"end_date"=>"2012-01-02 00:00:00",
 				"reward1_type"=>3,
 				"reward1_factor"=>10,
 				"reward1_flag"=>"",
@@ -34922,8 +34922,8 @@ class GameSettings{
 				]
 			],
 			"easter"=>[
-				"start_date"=>"2012-01-01",
-				"end_date"=>"2012-01-02",
+				"start_date"=>"2012-01-01 00:00:00",
+				"end_date"=>"2012-01-02 00:00:00",
 				"reward1_type"=>3,
 				"reward1_factor"=>10,
 				"reward1_flag"=>"",
@@ -34980,8 +34980,8 @@ class GameSettings{
 				]
 			],
 			"ghostbusters_event"=>[
-				"start_date"=>"2012-01-01",
-				"end_date"=>"2012-01-02",
+				"start_date"=>"2012-01-01 00:00:00",
+				"end_date"=>"2012-01-02 00:00:00",
 				"reward1_type"=>3,
 				"reward1_factor"=>10,
 				"reward1_flag"=>"",
@@ -35038,8 +35038,8 @@ class GameSettings{
 				]
 			],
 			"worldcup_event_1"=>[
-				"start_date"=>"2012-01-01",
-				"end_date"=>"2012-01-02",
+				"start_date"=>"2012-01-01 00:00:00",
+				"end_date"=>"2012-01-02 00:00:00",
 				"reward1_type"=>3,
 				"reward1_factor"=>10,
 				"reward1_flag"=>"",
@@ -35096,8 +35096,8 @@ class GameSettings{
 				]
 			],
 			"worldcup_event_2"=>[
-				"start_date"=>"2012-01-01",
-				"end_date"=>"2012-01-02",
+				"start_date"=>"2012-01-01 00:00:00",
+				"end_date"=>"2012-01-02 00:00:00",
 				"reward1_type"=>3,
 				"reward1_factor"=>10,
 				"reward1_flag"=>"",
@@ -35154,8 +35154,8 @@ class GameSettings{
 				]
 			],
 			"birthday_event"=>[
-				"start_date"=>"2012-01-01",
-				"end_date"=>"2012-01-02",
+				"start_date"=>"2012-01-01 00:00:00",
+				"end_date"=>"2012-01-02 00:00:00",
 				"reward1_type"=>3,
 				"reward1_factor"=>10,
 				"reward1_flag"=>"",
@@ -35196,8 +35196,8 @@ class GameSettings{
 				]
 			],
 			"octoberfest"=>[
-				"start_date"=>"2012-01-01",
-				"end_date"=>"2012-01-02",
+				"start_date"=>"2012-01-01 00:00:00",
+				"end_date"=>"2012-01-02 00:00:00",
 				"reward1_type"=>3,
 				"reward1_factor"=>10,
 				"reward1_flag"=>"",
@@ -35254,8 +35254,8 @@ class GameSettings{
 				]
 			],
 			"olympia_2016_rio"=>[
-				"start_date"=>"2012-01-01",
-				"end_date"=>"2012-01-02",
+				"start_date"=>"2012-01-01 00:00:00",
+				"end_date"=>"2012-01-02 00:00:00",
 				"reward1_type"=>3,
 				"reward1_factor"=>10,
 				"reward1_flag"=>"",

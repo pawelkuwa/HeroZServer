@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.0.0] - 2026-03-21
+
+### Added
+- Event quest system with 13 themed events (halloween, summer, xmas, easter, carnival, octoberfest, etc.)
+- 4 new handlers: `assignEventQuest`, `claimEventQuestObjectiveRewards`, `claimEventQuestRewards`, `instantFinishEventQuestObjective`
+- 11 objective tracking types: quests, duels, training, honor, energy, world boss, event items, sewing, shop refresh
+- Event item drops on quest completion with configurable chance per item
+- Progress tracking in 6 existing reward handlers
+- Event quest data in login, character creation and syncGame responses
+- Fallback to random epic items when event-specific item identifiers don't exist in templates
+- New DB table: `event_quests`
+- Halloween event activated (2024-2030) for testing
+
 ## [1.1.0] - 2026-03-19
 
 ### Added

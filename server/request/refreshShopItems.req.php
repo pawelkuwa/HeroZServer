@@ -21,6 +21,7 @@ class refreshShopItems{
         $player->incrementGoalStat('shop_refreshed');
         $player->incrementGoalStat('shop_refreshed_a_day');
         $player->updateHerobookProgress(8);
+        $player->updateEventQuestProgress(11);
 
         Core::req()->data = array(
             'character'=>$player->character,

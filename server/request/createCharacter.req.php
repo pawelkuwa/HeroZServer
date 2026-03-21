@@ -135,8 +135,12 @@ class createCharacter{
             "user_geo_location"=>"xX",
             "worldboss_event_character_data"=>array()
         );
+
+        $activeEvent = $player->getActiveEventForLogin();
+        if($activeEvent)
+            Core::req()->data['event_quest'] = $activeEvent;
     }
-    
+
     private function getTournamentEndTimestamp(){
         $t = \Schema\Tournament::find(function($q){ $q->where('status', 1); });
         return $t ? $t->ts_end : 0;

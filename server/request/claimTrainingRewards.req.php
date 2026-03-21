@@ -32,6 +32,7 @@ class claimTrainingRewards{
         $player->character->active_training_id = 0;
         $player->incrementGoalStat('trainings_absolved');
         $player->updateHerobookProgress(15);
+        $player->updateEventQuestProgress(5);
         $player->calculateStats();
 
 

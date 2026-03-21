@@ -15,5 +15,9 @@ class syncGame{
         Core::req()->data['herobook_objectives'] = $player->getHerobookObjectives();
         Core::req()->data['collected_goals'] = $player->getCollectedGoals();
         Core::req()->data['current_goal_values'] = $player->getGoalValues();
+
+        $eqData = $player->getEventQuest();
+        if($eqData)
+            Core::req()->data['event_quest'] = $eqData;
     }
 }

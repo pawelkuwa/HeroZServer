@@ -1656,6 +1656,45 @@ ALTER TABLE `message_ignored_characters`
 ALTER TABLE `message_ignored_characters`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `event_quests`
+--
+
+CREATE TABLE `event_quests` (
+  `id` int(11) NOT NULL,
+  `character_id` int(11) NOT NULL,
+  `identifier` varchar(100) NOT NULL,
+  `status` int(11) NOT NULL DEFAULT '1',
+  `end_date` varchar(30) NOT NULL DEFAULT '',
+  `objective1_value` int(11) NOT NULL DEFAULT '0',
+  `objective2_value` int(11) NOT NULL DEFAULT '0',
+  `objective3_value` int(11) NOT NULL DEFAULT '0',
+  `objective4_value` int(11) NOT NULL DEFAULT '0',
+  `objective5_value` int(11) NOT NULL DEFAULT '0',
+  `objective6_value` int(11) NOT NULL DEFAULT '0',
+  `rewards` text NOT NULL,
+  `reward_item1_id` int(11) NOT NULL DEFAULT '0',
+  `reward_item2_id` int(11) NOT NULL DEFAULT '0',
+  `reward_item3_id` int(11) NOT NULL DEFAULT '0',
+  `ts_creation` int(11) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Indeksy dla tabeli `event_quests`
+--
+ALTER TABLE `event_quests`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_character` (`character_id`),
+  ADD KEY `idx_status` (`status`);
+
+--
+-- AUTO_INCREMENT dla tabeli `event_quests`
+--
+ALTER TABLE `event_quests`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

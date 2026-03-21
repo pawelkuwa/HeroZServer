@@ -166,6 +166,15 @@ class loginUser{
         if($herobookCreated)
             $herobookData->newObjectivesCreated = true;
         Core::req()->data['herobook_objectives'] = $herobookData;
+
+        $eqData = $player->getEventQuest();
+        if($eqData){
+            Core::req()->data['event_quest'] = $eqData;
+        } else {
+            $activeEvent = $player->getActiveEventForLogin();
+            if($activeEvent)
+                Core::req()->data['event_quest'] = $activeEvent;
+        }
     }
     
     private function advInfo(){

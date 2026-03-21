@@ -21,6 +21,13 @@ class claimDuelRewards{
             $player->setGoalStat('duels_won_in_row', 0);
         }
         $player->updateHerobookProgress(11);
+        $player->updateEventQuestProgress(9);
+        if($player->battle->winner == 'a'){
+            $honorGained = 0;
+            $rew = json_decode($player->duel->character_a_rewards, true);
+            if(isset($rew['honor']) && $rew['honor'] > 0) $honorGained = $rew['honor'];
+            if($honorGained > 0) $player->updateEventQuestProgress(3, '', $honorGained);
+        }
 
         $player->character->active_duel_id = 0;
         $player->duel->character_a_status = 3;

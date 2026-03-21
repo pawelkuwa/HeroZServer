@@ -67,8 +67,7 @@ https://imgur.com/a/XjBiT4S
 | Account Management | ✅ | Change password/email, delete account, stat redistribution |
 | Voucher / Promo Codes | ✅ | Code validation, usage limits, level/locale restrictions, expiry |
 | Leaderboards | ✅ | Character XP, honor, guild rankings |
-| Friend System | ❌ | Not yet |
-| Event Quests | ❌ | Not yet |
+| Event Quests | ✅ | 13 themed events with objectives and rewards |
 
 ### Admin Panel
 
@@ -87,19 +86,9 @@ https://imgur.com/a/XjBiT4S
 
 ### SWF Compatibility
 
-About 87% of the game client's actions are implemented. The remaining ones are mostly the friend system, event quests, and some minor features.
+About 89% of the game client's actions are implemented. The remaining actions require external components we don't have (friend bar SWF).
 
-
-
-### What's Left to Implement
-
-| Feature | Handlers | Priority | Details |
-|---------|:--------:|:--------:|---------|
-| Friend System | 5 | Medium | Add/remove friends, friend bar, invitations |
-| Event Quests | 4 | Medium | Timed objectives with 10 tracking types, 6 reward types |
-| Resource Requests | 8 | Medium | Send energy/spins to friends (depends on Friend System) |
-
-> **Not planned:** Payments, Advertising, SSO/Platform, Kongregate, Game Testing - these don't apply to a private server.
+> **Not planned:** Payments, Advertising, SSO/Platform, Kongregate, Game Testing, Friend System (requires external friendbar.swf we don't have), Resource Requests (depends on Friend System).
 
 ## Tech Stack
 
@@ -302,6 +291,7 @@ See [CHANGELOG.md](CHANGELOG.md) for the full changelog.
 
 | Version | Date | Highlights |
 |---------|------|------------|
+| **2.0.0** | 2026-03-21 | Event quest system (13 themed events, 11 objective types, event item drops) |
 | **1.1.0** | 2026-03-19 | Message ignore system (ignore/unignore, server-side blocking) |
 | **1.0.6** | 2026-03-18 | Quick win handlers (locale, ToS, quest refresh, logout, error logging), league fight fix |
 | **1.0.5** | 2026-03-15 | Guild battle history, voucher/promo codes with admin panel, item validation |

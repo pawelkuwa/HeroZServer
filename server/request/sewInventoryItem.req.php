@@ -86,6 +86,7 @@ class sewInventoryItem{
 		);
 
 		$player->incrementGoalStat('item_sewed');
+		$player->updateEventQuestProgress(10);
 		$goalStats = $player->getGoalStats();
 		if(($goalStats['item_sewed'] ?? 0) == 1){
 			$player->setGoalStat('first_item_sewed', 1);

@@ -31,6 +31,12 @@ class claimQuestRewards{
         if($quest->type == 1) $player->updateHerobookProgress(12);
         if($quest->type == 2) $player->updateHerobookProgress(14);
 
+        $player->updateEventQuestProgress(8, $quest->identifier);
+        if($quest->type == 1) $player->updateEventQuestProgress(1, '', 1);
+        if($quest->type == 2) $player->updateEventQuestProgress(2, '', 1);
+        $player->updateEventQuestProgress(4, '', $quest->energy_cost);
+        $player->rollEventItem();
+
         if(!$player->getTutorialFlag('first_mission')){
             $player->setTutorialFlag('first_mission', true);
             $player->giveMoney(10);

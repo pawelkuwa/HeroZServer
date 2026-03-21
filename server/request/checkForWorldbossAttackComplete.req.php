@@ -90,6 +90,7 @@ class checkForWorldbossAttackComplete{
         $player->incrementGoalStat('worldboss_attacks_completed');
         if($ownAttackCount == 1)
             $player->setGoalStat('first_worldboss_attack_completed', 1);
+        $player->updateEventQuestProgress(6, $event->identifier);
 
         $player->character->active_worldboss_attack_id = 0;
 
