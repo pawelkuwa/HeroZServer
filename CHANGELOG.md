@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.0.1] - 2026-03-29
+
+### Fixed
+- Self-duel bug: players could see themselves in the duel opponent list. Added `user_id` exclusion to both queries in `getDuelOpponents`
+- Server crash when attacking yourself: `loadForDuel()` was called before null check in `startDuel`, reordered to prevent crash on invalid opponent
+
 ## [2.0.0] - 2026-03-21
 
 ### Added

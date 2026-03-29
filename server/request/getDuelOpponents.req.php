@@ -11,10 +11,10 @@ class getDuelOpponents{
     
     public function __request($player){
         
-        $opp = DB::sql("SELECT `user_id` FROM `character` WHERE `honor` <= {$player->character->honor} AND `honor` >= 0 AND `id`<>{$player->character->id} ORDER BY `honor` DESC LIMIT 10")->fetchALL(PDO::FETCH_NUM);
-        
+        $opp = DB::sql("SELECT `user_id` FROM `character` WHERE `honor` <= {$player->character->honor} AND `honor` >= 0 AND `id`<>{$player->character->id} AND `user_id`<>{$player->user->id} ORDER BY `honor` DESC LIMIT 10")->fetchALL(PDO::FETCH_NUM);
+
         if(count($opp) < 2)
-            $opp = DB::sql("SELECT `user_id` FROM `character` WHERE `id`<>{$player->character->id} ORDER BY `honor` ASC LIMIT 10")->fetchALL(PDO::FETCH_NUM);
+            $opp = DB::sql("SELECT `user_id` FROM `character` WHERE `id`<>{$player->character->id} AND `user_id`<>{$player->user->id} ORDER BY `honor` ASC LIMIT 10")->fetchALL(PDO::FETCH_NUM);
         
         shuffle ( $opp );
         

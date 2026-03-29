@@ -292,6 +292,7 @@ See [CHANGELOG.md](CHANGELOG.md) for the full changelog.
 
 | Version | Date | Highlights |
 |---------|------|------------|
+| **2.0.1** | 2026-03-29 | Fix self-duel bug (opponent list + server crash) |
 | **2.0.0** | 2026-03-21 | Event quest system (13 themed events, 11 objective types, event item drops) |
 | **1.1.0** | 2026-03-19 | Message ignore system (ignore/unignore, server-side blocking) |
 | **1.0.6** | 2026-03-18 | Quick win handlers (locale, ToS, quest refresh, logout, error logging), league fight fix |

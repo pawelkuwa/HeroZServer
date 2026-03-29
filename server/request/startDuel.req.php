@@ -33,9 +33,9 @@ class startDuel{
 			return Core::setError("errSelfAttackIsNotAllowed");
         
         $opponent = Player::findByCharacterId($opponentID);
-        $opponent->loadForDuel();
         if(!$opponent)
             return Core::setError('errNoSuchUser');
+        $opponent->loadForDuel();
             
         $duelbattle = new DuelBattle($player, $opponent);
         $duelbattle->start();
